@@ -19,7 +19,7 @@ class Window {
     @OptIn(ExperimentalMaterialApi::class)
     @Composable
     fun Theme() {
-        var text by remember { mutableStateOf("Hello, World!") }
+        var tfText by remember { mutableStateOf(TextFieldValue()) }
 
         MaterialTheme {
 
@@ -33,15 +33,17 @@ class Window {
                     )
 
                 }
+
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Column(
-                        modifier = Modifier.background(Color.Green, RoundedCornerShape(10.dp)).width(300.dp).height(100.dp).clip(RoundedCornerShape(20.dp)),
+                        modifier = Modifier.background(Color.White, RoundedCornerShape(10.dp)).width(300.dp)
+                            .height(100.dp).clip(RoundedCornerShape(20.dp)),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
 
 
-                        ) {
-                        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.background(Color.White)){
+                    ) {
+                        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.background(Color.White)) {
                             Text(text = "0", modifier = Modifier.align(Alignment.CenterVertically))
                         }
                         Row(modifier = Modifier.padding(15.dp)) {
@@ -49,10 +51,45 @@ class Window {
                         }
                     }
                 }
+                Box(
+                    modifier = Modifier.fillMaxSize().padding(vertical = 100.dp),
+                    contentAlignment = Alignment.BottomCenter
+                ) {
+                    Column(
+                        modifier = Modifier.background(Color.White, RoundedCornerShape(10.dp)).width(300.dp)
+                            .height(120.dp).clip(RoundedCornerShape(20.dp)),
+                        verticalArrangement = Arrangement.Top,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Row() {
+                            Text(text = "Question", modifier = Modifier.align(Alignment.Top))
+                        }
+
+                        Row() {
+                            Text(
+                                text = "23 + 66 =",
+                                modifier = Modifier.align(Alignment.CenterVertically).padding(vertical = 20.dp)
+                                    .height(IntrinsicSize.Min)
+
+                            )
+                            Column(modifier = Modifier.width(200.dp).padding(start = 30.dp)) {
+                                TextField(value = tfText,
+                                    modifier = Modifier.padding(vertical = 20.dp),
+                                    onValueChange = { tfText = it },
+                                    colors = TextFieldDefaults.textFieldColors(textColor = Color.Black),
+                                    placeholder = { Text("write here") })
+                            }
+
+                        }
+                    }
+
+                }
+
+
             }
 
-
         }
+
     }
 }
 
