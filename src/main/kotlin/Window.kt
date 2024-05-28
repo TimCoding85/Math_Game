@@ -1,4 +1,6 @@
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 
@@ -7,14 +9,21 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.graphics.Canvas
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+
+
+
 class Window {
+
+
 
     @OptIn(ExperimentalMaterialApi::class)
     @Composable
@@ -34,7 +43,7 @@ class Window {
 
                 }
 
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Box(modifier = Modifier.fillMaxSize().offset(y=(-75).dp), contentAlignment = Alignment.Center) {
                     Column(
                         modifier = Modifier.background(Color.White, RoundedCornerShape(10.dp)).width(300.dp)
                             .height(100.dp).clip(RoundedCornerShape(20.dp)),
@@ -49,10 +58,16 @@ class Window {
                         Row(modifier = Modifier.padding(15.dp)) {
                             Text(text = "Score")
                         }
+                        Box(modifier = Modifier.padding(15.dp)){
+                            LinearProgressIndicator(progress = 0.7f, color = Color.Green, modifier = Modifier.fillMaxWidth().height(10.dp).size(10.dp, 50.dp))
+
+
+
+                        }
                     }
                 }
                 Box(
-                    modifier = Modifier.fillMaxSize().padding(vertical = 100.dp),
+                    modifier = Modifier.fillMaxSize().padding(vertical = 100.dp).offset(y=(-50).dp),
                     contentAlignment = Alignment.BottomCenter
                 ) {
                     Column(
@@ -65,22 +80,27 @@ class Window {
                             Text(text = "Question", modifier = Modifier.align(Alignment.Top))
                         }
 
-                        Row() {
+                        Row(modifier = Modifier.padding(start=10.dp).align(Alignment.CenterHorizontally)) {
                             Text(
                                 text = "23 + 66 =",
                                 modifier = Modifier.align(Alignment.CenterVertically).padding(vertical = 20.dp)
-                                    .height(IntrinsicSize.Min)
+                                    .height(IntrinsicSize.Min).border(1.dp, Color.Gray).width(100.dp)
+
 
                             )
-                            Column(modifier = Modifier.width(200.dp).padding(start = 30.dp)) {
+                            Column(modifier = Modifier.width(150.dp).padding(start = 20.dp)) {
                                 TextField(value = tfText,
-                                    modifier = Modifier.padding(vertical = 20.dp),
+                                    modifier = Modifier.padding(vertical = 20.dp).border(1.dp, Color.Blue),
                                     onValueChange = { tfText = it },
-                                    colors = TextFieldDefaults.textFieldColors(textColor = Color.Black),
+                                    colors = TextFieldDefaults.textFieldColors(textColor = Color.Black, backgroundColor = Color.White),
                                     placeholder = { Text("write here") })
                             }
 
                         }
+                    }
+                    Box(){
+
+                        
                     }
 
                 }

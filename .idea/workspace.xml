@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0c23701-9ae3-41ed-a69a-1d0075d647ef" name="Changes" comment="Theme updated">
+    <list default="true" id="a0c23701-9ae3-41ed-a69a-1d0075d647ef" name="Changes" comment="Add Columns">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Window.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Window.kt" afterDir="false" />
     </list>
@@ -63,7 +63,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715839796898</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Columns">
+      <option name="closed" value="true" />
+      <created>1716324712651</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716324712651</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,6 +87,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Theme updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Theme updated" />
+    <MESSAGE value="Add Columns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Columns" />
   </component>
 </project>
